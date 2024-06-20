@@ -1,0 +1,16 @@
+.formen {
+  transition: none !important;
+}
+
+.formen .f-wrapper {
+  transform: scale(1);
+  opacity: 1;
+  transition: transform 200ms cubic-bezier(0.54, 0.31, 0.33, 1.2),
+    opacity 200ms cubic-bezier(0.54, 0.31, 0.33, 1.2);
+}
+
+.formen.transition .f-wrapper {
+  transform: scale(0.8);
+  opacity: 0;
+  transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
+}
