@@ -34,15 +34,16 @@ function setFormenState(newState) {
   console.log("state in f: " + state);
   if (newState == state) return;
   state = newState;
-  let formenWarppen = document.querySelector(".formen");
-  formenWarppen.classList.add("transition");
+  let formenWrapper = document.querySelector(".formen");
+  let main = document.querySelector("main");
+  formenWrapper.classList.add("transition");
   setTimeout(() => {
-    formenWarppen.setAttribute("data-state", state);
-    formenWarppen.classList.remove("transition");
+    main.setAttribute("data-state", state);
+    formenWrapper.classList.remove("transition");
   }, 200);
 }
 
 function getFormenState() {
-  let formenWarppen = document.querySelector(".formen");
-  return formenWarppen.getAttribute("data-state");
+  let main = document.querySelector("main");
+  return main.getAttribute("data-state");
 }

@@ -1,0 +1,135 @@
+@font-face {
+  font-family: STKVF;
+  src: url("../assets/fonts/StadtkuratorinVF.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+}
+
+.formen {
+  all: unset;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  transition: all 1000ms ease-in-out;
+}
+
+main[data-state="2"] {
+  overflow: hidden;
+}
+
+.glyph {
+  font-family: STKVF;
+  color: #4a4a49;
+  font-variation-settings: "wght" 160;
+  margin-top: -5vh;
+  font-size: 110vh;
+  line-height: 100%;
+  transition: all 1200ms ease-in-out;
+}
+
+main[data-state="1"] .formen .glyph {
+  font-variation-settings: "wght" 75;
+  transition: all 1200ms ease-in-out;
+  margin-left: 2%;
+}
+
+main[data-state="2"] .formen .glyph {
+  font-variation-settings: "wght" 30;
+  transition: all 1200ms ease-in-out;
+  margin-left: 5%;
+}
+
+.title {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  font-size: 8rem;
+  text-indent: -4rem;
+  z-index: 100;
+  pointer-events: none;
+  line-height: 80%;
+  transition: all 1200ms ease-in-out;
+}
+
+main[data-state="1"] .formen .title {
+  font-size: 4rem;
+  transition: all 800ms ease-in-out;
+  width: 50vw;
+}
+
+main[data-state="2"] .formen .title {
+  font-size: 3rem;
+  transition: all 600ms ease-in-out;
+  width: 30vw;
+}
+
+.big-content {
+  all: unset;
+  opacity: 1;
+  background-color: white;
+  position: fixed;
+  width: 0vw;
+  pointer-events: none;
+  top: 20px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  border-top-right-radius: 10px;
+  transition: all 1200ms ease-in-out;
+}
+
+main[data-state="2"] .big-content {
+  width: 70vw;
+  transition: all 1200ms ease-in-out;
+  pointer-events: none;
+  opacity: 1;
+}
+
+.pills {
+  position: fixed;
+  width: 45vw;
+  left: 20px;
+  top: 20px;
+  bottom: 20px;
+}
+
+main[data-state="2"] .pills {
+  transition: all 800ms ease-in-out;
+  width: 30vw;
+}
+
+.pills a {
+  font-family: "Friedl";
+  position: absolute;
+  padding: 20px 30px;
+  background-color: red;
+  color: white;
+  border-radius: 100px;
+  pointer-events: all;
+}
+
+.pill1 {
+  left: 10vw;
+  bottom: 4vh;
+  transform: rotate(-8deg);
+}
+
+.pill2 {
+  left: 30px;
+  bottom: 25vh;
+  transform: rotate(12deg);
+}
+
+.pill3 {
+  right: 5rem;
+  bottom: 17vh;
+  transform: rotate(-1deg);
+}

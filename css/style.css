@@ -1,8 +1,15 @@
 /* include your fonts */
 @font-face {
-  font-family: "Clouds";
-  src: url("../assets/fonts/APL385.woff2") format("woff2"),
-    url("../assets/fonts/APL385.woff") format("woff");
+  font-family: "Kolle";
+  src: url("../assets/fonts/KolleVF.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Friedl";
+  src: url("../assets/fonts/Friedl-Beta1_240227-VF.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -17,6 +24,8 @@
 
 body {
   background-color: black;
+  font-family: "Kolle";
+  scroll-behavior: smooth;
 }
 
 main {
@@ -25,6 +34,8 @@ main {
   border-radius: 10px;
   overflow: scroll;
   background-color: #807ac6;
+  scroll-behavior: smooth;
+  scroll-padding-top: 50px;
 }
 
 .formen {
@@ -35,7 +46,7 @@ main {
   grid-template-rows: 3fr 2fr 0fr;
   align-items: center;
   justify-items: center;
-  transition: all 300ms ease-in-out;
+  transition: all 500ms ease-in-out;
   grid-template-areas:
     "form1  form31  . "
     "form2  form32  . "
@@ -93,21 +104,21 @@ main {
 .formen[data-state="1"] {
   grid-template-columns: 3fr 2fr 5fr;
   grid-template-rows: 3fr 2fr 2fr;
-  transition: all 800ms;
   grid-template-areas:
     "form1 form1 ."
     "form2  form2 ."
     "form31 form32 .";
+  transition: all 500ms ease-in-out;
 }
 
 .formen[data-state="2"] {
   grid-template-columns: 1fr 1fr 5fr;
   grid-template-rows: 2fr 1fr 1fr;
-  transition: all 800ms;
   grid-template-areas:
     "form1 form1 bigContent"
     "form2  form2 bigContent"
     "form31 form32 bigContent";
+  transition: all 500ms ease-in-out;
 }
 
 .big-content {
@@ -121,13 +132,14 @@ main {
   position: fixed;
   top: 50px;
   left: 50px;
-  width: 400px;
-  height: 500px;
+  width: 300px;
+  height: 300px;
   border-radius: 10px;
-  font-size: 2.3rem;
-  backdrop-filter: hue-rotate(230deg) brightness(200%) contrast(50%)
+  font-size: 2rem;
+  backdrop-filter: hue-rotate(230deg) brightness(200%) contrast(40%)
     saturate(300%);
   cursor: pointer;
+  z-index: 10;
 }
 
 .menu .menu-header {
@@ -143,22 +155,26 @@ main {
   flex-direction: column;
   align-items: end;
   padding-top: 80vh;
-  padding-bottom: 100vh;
+  padding-bottom: 70vh;
   pointer-events: none;
 }
 
 .content > div {
   width: 50vw;
-  height: 600px;
+  height: 700px;
   margin: 30px 30px 60px 30px;
-  backdrop-filter: grayscale(90%) brightness(280%) contrast(60%) opacity(100%);
+  backdrop-filter: grayscale(100%) contrast(90%) opacity(90%);
+  background: rgba(255, 255, 255, 0.586);
+
   border-radius: 10px;
-  font-size: 2.3rem;
+  font-size: 2rem;
   padding: 20px;
   transform: translateY(0px);
   opacity: 1;
+  z-index: 10;
   transition: all 400ms ease-in-out;
   transition-delay: 300ms;
+
 }
 
 .content.hide > div {
@@ -187,7 +203,7 @@ main {
   color: white;
 }
 
-.switch span{
+.switch span {
   display: block;
   margin: 5px;
   background-color: green;
