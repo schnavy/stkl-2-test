@@ -1,9 +1,8 @@
 let state = 0;
 let main = document.querySelector("main");
 main.addEventListener("scroll", (e) => {
-  console.log("scroll listener called: " + state);
   if (state == 2) return;
-  if (main.scrollTop > 10) {
+  if (main.scrollTop > 5) {
     setFormenState(1);
   } else {
     setFormenState(0);
@@ -19,7 +18,7 @@ let menu = document.querySelector(".menu");
 menu.addEventListener("click", () => {
   let newState = 2;
   if (state == 2) {
-    if (main.scrollTop > 10) {
+    if (main.scrollTop > 5) {
       newState = 1;
     } else {
       newState = 0;
@@ -31,7 +30,6 @@ menu.addEventListener("click", () => {
 });
 
 function setFormenState(newState) {
-  console.log("state in f: " + state);
   if (newState == state) return;
   state = newState;
   let formenWrapper = document.querySelector(".formen");
@@ -40,10 +38,38 @@ function setFormenState(newState) {
   setTimeout(() => {
     main.setAttribute("data-state", state);
     formenWrapper.classList.remove("transition");
-  }, 200);
+  }, 5);
 }
 
 function getFormenState() {
   let main = document.querySelector("main");
   return main.getAttribute("data-state");
+}
+
+const glyphResizeObserver = new ResizeObserver((entries) => {
+  for (let entry of entries) {
+    requestAnimationFrame(() => setGlyphRatio(entry.target));
+  }
+});
+
+let resizeTimeout;
+function setGlyphRatio(glyphInput) {
+  let aspectRatio =
+    glyphInput.getBoundingClientRect().width /
+    glyphInput.getBoundingClientRect().height;
+
+  let weight = Math.floor((900 * aspectRatio) / 10);
+  glyphInput.style.fontVariationSettings = "'wght' " + weight;
+}
+
+let glyph = document.querySelector(".glyph");
+glyphResizeObserver.observe(glyph);
+
+initializeGlyph(glyph);
+
+function initializeGlyph(glyph) {
+  glyph.style.display = "block";
+  setTimeout(() => {
+    glyph.style.transition = "font-variation-settings 500ms ease-out";
+  }, 100);
 }

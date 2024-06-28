@@ -8,36 +8,13 @@
 .formen {
   all: unset;
   position: fixed;
-  inset: 0;
+  inset: 20px;
   pointer-events: none;
   z-index: 1;
-  transition: all 1000ms ease-in-out;
 }
 
 main[data-state="2"] {
   overflow: hidden;
-}
-
-.glyph {
-  font-family: STKVF;
-  color: #4a4a49;
-  font-variation-settings: "wght" 160;
-  margin-top: -5vh;
-  font-size: 110vh;
-  line-height: 100%;
-  transition: all 1200ms ease-in-out;
-}
-
-main[data-state="1"] .formen .glyph {
-  font-variation-settings: "wght" 75;
-  transition: all 1200ms ease-in-out;
-  margin-left: 2%;
-}
-
-main[data-state="2"] .formen .glyph {
-  font-variation-settings: "wght" 30;
-  transition: all 1200ms ease-in-out;
-  margin-left: 5%;
 }
 
 .title {
@@ -56,7 +33,7 @@ main[data-state="2"] .formen .glyph {
   z-index: 100;
   pointer-events: none;
   line-height: 80%;
-  transition: all 1200ms ease-in-out;
+  transition: all 800ms ease-in-out;
 }
 
 main[data-state="1"] .formen .title {
@@ -68,7 +45,7 @@ main[data-state="1"] .formen .title {
 main[data-state="2"] .formen .title {
   font-size: 3rem;
   transition: all 600ms ease-in-out;
-  width: 30vw;
+  width: 25%;
 }
 
 .big-content {
@@ -83,12 +60,12 @@ main[data-state="2"] .formen .title {
   bottom: 20px;
   z-index: 1000;
   border-top-right-radius: 10px;
-  transition: all 1200ms ease-in-out;
+  transition: all 800ms ease-in-out;
 }
 
 main[data-state="2"] .big-content {
   width: 70vw;
-  transition: all 1200ms ease-in-out;
+  transition: all 800ms ease-in-out;
   pointer-events: none;
   opacity: 1;
 }
@@ -132,4 +109,30 @@ main[data-state="2"] .pills {
   right: 5rem;
   bottom: 17vh;
   transform: rotate(-1deg);
+}
+
+
+
+
+
+
+.glyph {
+  font-family: STKVF;
+  color: #4a4a49;
+  font-variation-settings: "wght" calc((100vw / 100vh * 900) / 10);
+  font-size: 110vh;
+  width: 100%;
+  display: none;
+  margin-top: -5%;
+  line-height: 100%;
+}
+
+main[data-state="1"] .formen .glyph {
+  font-variation-settings: "wght" 75;
+  width: 50%;
+}
+
+main[data-state="2"] .formen .glyph {
+  font-variation-settings: "wght" 30;
+  width: 25%;
 }
